@@ -1,0 +1,28 @@
+Source: x11proto-gl
+Section: x11
+Priority: optional
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Uploaders: David Nusinow <dnusinow@debian.org>
+Build-Depends:
+ debhelper (>= 5.0.0),
+ automake,
+ xutils-dev (>= 1:7.5~1)
+Standards-Version: 3.8.1
+Vcs-Git: git://git.debian.org/git/pkg-xorg/proto/x11proto-gl
+Vcs-Browser: http://git.debian.org/?p=pkg-xorg/proto/x11proto-gl.git
+
+Package: x11proto-gl-dev
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, x11-common (>= 1:7.0.0)
+Replaces: xlibmesa-gl-dev
+Description: X11 OpenGL extension wire protocol
+ This package provides development headers describing the wire protocol
+ for OpenGL-related extensions, used to enable the rendering of
+ applications using OpenGL.
+ .
+ More information about X.Org can be found at:
+ <URL:http://www.X.org>
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+ .
+ This package is built from the X.org glproto proto module.
