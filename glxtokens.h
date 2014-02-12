@@ -153,14 +153,14 @@ extern "C" {
 
 /* glXSelectEvent event mask bits */
 #define GLX_PBUFFER_CLOBBER_MASK	0x08000000
-#define GLX_BUFFER_SWAP_COMPLETE_INTEL_MASK	0x10000000
+#define GLX_BUFFER_SWAP_COMPLETE_INTEL_MASK	0x04000000
 
 /* GLXPbufferClobberEvent event_type values */
 #define GLX_DAMAGED			0x8020
 #define GLX_SAVED			0x8021
-#define GLX_EXCHANGE_COMPLETE_INTEL	0x8024
-#define GLX_BLIT_COMPLETE_INTEL		0x8025
-#define GLX_FLIP_COMPLETE_INTEL		0x8026
+#define GLX_EXCHANGE_COMPLETE_INTEL	0x8180
+#define GLX_BLIT_COMPLETE_INTEL		0x8181
+#define GLX_FLIP_COMPLETE_INTEL		0x8182
 
 /* GLXPbufferClobberEvent draw_type values */
 #define GLX_WINDOW			0x8022
@@ -278,6 +278,33 @@ extern "C" {
 #define GLX_SAMPLE_BUFFERS_SGIS            100000
 #define GLX_SAMPLES_SGIS                   100001
 
+/*
+ * GLX_EXT_framebuffer_SRGB
+ */
+#define GLX_FRAMEBUFFER_SRGB_CAPABLE_EXT   0x20B2
+
+/*
+ * GLX_ARB_create_context
+ * GLX_ARB_create_context_profile
+ */
+#define GLX_CONTEXT_MAJOR_VERSION_ARB      0x2091
+#define GLX_CONTEXT_MINOR_VERSION_ARB      0x2092
+#define GLX_CONTEXT_FLAGS_ARB              0x2094
+#define GLX_CONTEXT_PROFILE_MASK_ARB       0x9126
+
+#define GLX_CONTEXT_DEBUG_BIT_ARB          0x0001
+#define GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB          0x0002
+
+#define GLX_CONTEXT_CORE_PROFILE_BIT_ARB   0x0001
+#define GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB   0x0002
+
+/*
+ * GLX_ARB_create_context_robustness
+ */
+#define GLX_CONTEXT_ROBUST_ACCESS_BIT_ARB  0x0004
+#define GLX_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB 0x8256
+#define GLX_NO_RESET_NOTIFICATION_ARB      0x8261
+#define GLX_LOST_CONTEXT_ON_RESET_ARB      0x8252
 #ifdef __cplusplus
 }
 #endif

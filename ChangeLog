@@ -1,3 +1,147 @@
+commit 29d5b553b30755a25300c30b67d39b37c9a76466
+Author: Ian Romanick <ian.d.romanick@intel.com>
+Date:   Mon Nov 28 10:53:17 2011 -0800
+
+    glproto: Document GLX_ARB_create_context and GLX_ARB_create_context_profile protocol
+    
+    Also add the struct names (in addition to the typedef names).  Most of
+    the other protocol structures have this, but some lack it.
+    
+    v2: Add a few missing Req suffixes.  Rename n0, n1, and n2 fields of
+    GLXSetClientInfoARB and GLXSetClientInfo2ARB to numVersions,
+    numGLExtensionBytes and numGLXExtensionBytes, respectively.  Since the
+    names of some structure fields change, bump the version to 1.4.15.
+    
+    Signed-off-by: Ian Romanick <ian.d.romanick@intel.com>
+    Reviewed-by: Dave Airlie <airlied@redhat.com>
+
+commit 6d7e398150dde1c15b7f62f485cb33bad8f4d5c6
+Author: Jesse Barnes <jbarnes@virtuousgeek.org>
+Date:   Thu May 5 13:10:39 2011 -0700
+
+    glproto: add a new GLXBufferSwapComplete struct that matches the spec
+    
+    Just add a new struct to remain compatible with existing code.
+    
+    Reviewed-by: Ian Romanick <ian.d.romanick@intel.com>
+    Reviewed-by: Jeremy Huddleston <jeremyhu@apple.com>
+    Signed-off-by: Jesse Barnes <jbarnes@virtuousgeek.org>
+
+commit 7196c9441af941be74180f8e8d4e10a08659b80f
+Author: Jesse Barnes <jbarnes@virtuousgeek.org>
+Date:   Thu May 5 09:21:19 2011 -0700
+
+    Revert "glxproto: make GLX swap event struct match spec"
+    
+    This reverts commit f5403828c68af0f12c79c0504df0a4781ca84b2b.
+    
+    This broke compatibility with existing code, so revert in favor of a new
+    struct definition instead.
+
+commit f5403828c68af0f12c79c0504df0a4781ca84b2b
+Author: Jesse Barnes <jbarnes@virtuousgeek.org>
+Date:   Tue May 3 12:14:10 2011 -0700
+
+    glxproto: make GLX swap event struct match spec
+    
+    We only spec a 32 bit swap count, so drop the high sbc field.  Also make
+    the padding explicit (most compilers would have already done this since
+    it's not a packed structure, but making it explicit should prevent
+    surprises in the future).
+    
+    Signed-off-by: Jesse Barnes <jbarnes@virtuousgeek.org>
+
+commit 0cc3162cd29e63f915dc2b66c8dbd7a1a3dcdddc
+Author: Dave Airlie <airlied@redhat.com>
+Date:   Sun Mar 6 17:48:05 2011 +1000
+
+    glproto: add GLX_ARB_context_create + GLX_ARB_context_create_profile
+    
+    Add glproto support for these two extensions
+    
+    also add tokens for GLX_ARB_create_context_robustness
+
+commit a50bd646df530b4ce84a8aef3d40c74766dfb60c
+Author: Dave Airlie <airlied@redhat.com>
+Date:   Mon Jan 3 19:40:30 2011 +1000
+
+    glxtokens.h: add GLX_EXT_framebuffer_sRGB support.
+    
+    this is needed to glxcmds.c to emit this info.
+
+commit f065686b320c5fbfd7e1da6fcd3e2690b8305ec8
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Tue Aug 10 10:01:33 2010 -0400
+
+    glproto 1.4.12
+    
+    Signed-off-by: Adam Jackson <ajax@redhat.com>
+
+commit b173af9ea5361b4794d4cca79f7c7dddd8401a87
+Author: Adam Jackson <ajax@redhat.com>
+Date:   Wed Aug 4 09:44:14 2010 -0400
+
+    Remove structure tag for xGLXHyperpipeConfigSGIXReq
+    
+    X request structs don't have tags, in general, and this particular one
+    causes a conflict with glxext.h which defines GLXHyperpipeConfigSGIX for
+    the client-side API.
+    
+    Signed-off-by: Adam Jackson <ajax@redhat.com>
+
+commit 8e7ef2d30ea8a98b6e90540e674b60d066a71fef
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Sun Mar 28 19:25:52 2010 -0400
+
+    config: update AC_PREREQ statement to 2.60
+    
+    Unrelated to the previous patches, the new value simply reflects
+    the reality that the minimum level for autoconf to configure
+    all x.org modules is 2.60 dated June 2006.
+    
+    ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.60.tar.gz
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit bba203c33e943d8de1bfe545434bee1db52a2245
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Sun Mar 28 19:00:31 2010 -0400
+
+    config: remove the pkgconfig pc.in file from EXTRA_DIST
+    
+    Automake always includes it in the tarball.
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
+commit 9c58144688d0200e7683882549490827868a44b5
+Author: Luc Verhaegen <libv@skynet.be>
+Date:   Fri Mar 5 15:32:11 2010 +0100
+
+    Sync glcore.h with mesa HEAD.
+    
+    EXT_texture_from_pixmap was added close to 4ys ago, but this file never
+    got updated, leading to "interesting" behaviour when anything slightly less
+    standard is attempted.
+    
+    Signed-off-by: Luc Verhaegen <libv@skynet.be>
+
+commit fa99593342f13220fb675a1c3c17b6a3d755abda
+Author: Ian Romanick <ian.d.romanick@intel.com>
+Date:   Tue Feb 9 15:20:59 2010 -0800
+
+    Update tokens for GLX_INTEL_swap_event to match final version of spec
+
+commit 2c7f76a1d42fbd4be995de56563c94882dd4a058
+Author: Gaetan Nadon <memsize@videotron.ca>
+Date:   Mon Nov 16 11:47:44 2009 -0500
+
+    COPYING: add Copyright from Silicon Graphics
+    
+    The COPYING file contains all Copyright notices from source code.
+    Refer to glxproto.h
+    
+    Signed-off-by: Gaetan Nadon <memsize@videotron.ca>
+
 commit 3966379209ec48f14a1d12e48f51b687d48cc6ac
 Author: Jesse Barnes <jbarnes@virtuousgeek.org>
 Date:   Fri Jan 8 15:11:48 2010 -0500
@@ -5,7 +149,7 @@ Date:   Fri Jan 8 15:11:48 2010 -0500
     Bump version for release
 
 commit 6a9361aaec49495d566db1267a21a0f4ed1b9480
-Merge: c35f05d... f2b9a6a...
+Merge: c35f05d f2b9a6a
 Author: Jesse Barnes <jbarnes@virtuousgeek.org>
 Date:   Fri Jan 8 11:43:07 2010 -0500
 
@@ -172,7 +316,7 @@ Date:   Fri Oct 12 19:03:25 2007 -0400
     Bump to 1.4.9 so we can depend on SGI pbuffer structs.
 
 commit e89ed37e56e2dec95fd43778f3a72bafca1d56e3
-Merge: 2adf876... 750a853...
+Merge: 2adf876 750a853
 Author: James Cloos <cloos@jhcloos.com>
 Date:   Mon Sep 3 06:17:08 2007 -0400
 

@@ -1,2 +1,2 @@
 usr/include/GL/*
-usr/lib/pkgconfig/glproto.pc
+usr/lib/pkgconfig/glproto.pc usr/share/pkgconfig

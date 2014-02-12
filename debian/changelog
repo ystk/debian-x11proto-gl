@@ -1,3 +1,46 @@
+x11proto-gl (1.4.15-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Julien Cristau <jcristau@debian.org>  Sun, 15 Apr 2012 15:48:21 +0200
+
+x11proto-gl (1.4.14-2) unstable; urgency=low
+
+  * Mark x11proto-gl-dev Multi-Arch: foreign.
+  * Install .pc file to /usr/share/pkgconfig instead of
+    /usr/lib/pkgconfig
+
+ -- Steve Langasek <vorlon@debian.org>  Sat, 02 Jul 2011 01:50:08 +0100
+
+x11proto-gl (1.4.14-1) unstable; urgency=low
+
+  * New upstream release.
+  * Switch to dh:
+    - Bump debhelper build-dep and compat to 8.
+    - Use dh-autoreconf and quilt sequences, rewrite rules file.
+    - Add placeholder quilt series file.
+  * Remove xsfbs accordingly.
+  * Update Uploaders list. Thanks, David!
+  * Wrap Depends/Replaces.
+  * Drop unnecessary Pre-Depends on x11-common.
+  * Bump Standards-Version to 3.9.2 (no changes).
+
+ -- Cyril Brulebois <kibi@debian.org>  Thu, 30 Jun 2011 01:03:26 +0200
+
+x11proto-gl (1.4.12-1) unstable; urgency=low
+
+  [ Robert Hooker ]
+  * New upstream release.
+
+  [ Cyril Brulebois ]
+  * Remove ChangeLog from .gitignore, and update it.
+  * Add pkg-config build-dep.
+  * Update debian/copyright.
+  * Switch from --list-missing to --fail-missing for additional safety.
+  * Add myself to Uploaders.
+
+ -- Cyril Brulebois <kibi@debian.org>  Wed, 03 Nov 2010 21:26:15 +0100
+
 x11proto-gl (1.4.11-1) unstable; urgency=low
 
   [ Julien Cristau ]
